@@ -1,10 +1,10 @@
 // content of index.js
 const http = require('http');
-const port = 3000;
+const port = (process.env.PORT || 3000);
 
 const requestHandler = (request, response) => {  
   console.log(request.url);
-  response.end('Hello Node.js Server!');
+  response.end('Mazikeen');
 };
 
 const server = http.createServer(requestHandler);
@@ -14,5 +14,5 @@ server.listen(port, (err) => {
     return console.log('something bad happened', err);
   }
 
-  console.log('server is listening on ${port}');
+  console.log('server is listening on ' + port);
 });
